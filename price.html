@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .pricing {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+
+        .pricing h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .pricing-card {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+            position: relative;
+        }
+
+        .pricing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pricing-header .new {
+            background-color: yellow;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        .price .currency {
+            font-size: 18px;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .features li {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .features .icon {
+            margin-right: 10px;
+        }
+
+        .join-btn {
+            background-color: black;
+            color: yellow;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .join-btn:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+        @media (max-width: 375px) {
+            .nav-links {
+                display: none;
+            }
+        
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 55px;
+                right: 15px;
+                background: #333;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        
+            h1{
+                font-size:6px;
+            }
+        
+            .nav-links li {
+                margin: 5px;
+                color: white;
+                font-size: 6px;
+            }
+        
+            .header-buttons .btn {
+                font-size: 6px;
+                padding: 7px;
+                margin-left: 5px;
+            }
+        
+            .equipment-text {
+                font-size: 15px;
+                margin-bottom: 18px;
+            }
+        
+            .equipment-image img {
+                width: 100%;
+            }
+        
+            .menu-toggle {
+                display: block;
+                font-size: 22px;
+            }
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2px;
+            padding-bottom: 1px;
+            border-top: 5px solid whitesmoke;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="data:image/jpeg;base64,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" alt="Asia Gym Logo" width="50px">
+            <span>Hayatabad Gym</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="pricing">
+        <h1>Hayatabad Branch Pricing</h1>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h2>Monthly</h2>
+                    <span class="new">NEW</span>
+                </div>
+                <div class="price">
+                    <span class="currency">Rs</span>
+                    <span class="amount">10,000</span>
+                </div>
+                <ul class="features">
+                    <li><span class="icon">🏋️</span> Awesome Community</li>
+                    <li><span class="icon">🏋️</span> Personal Fitness Program</li>
+                    <li><span class="icon">🏋️</span> Nutrition Check-in</li>
+                    <li><span class="icon">🏋️</span> Great Coaching</li>
+                    <li><span class="icon">🏋️</span> Free Trial Class</li>
+                    <li><span class="icon">🏋️</span> Car Parking</li>
+                </ul>
+                <button class="join-btn">Join Now</button>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h2>Quarterly</h2>
+                    <span class="new">NEW</span>
+                </div>
+                <div class="price">
+                    <span class="currency">Rs</span>
+                    <span class="amount">50,000</span>
+                </div>
+                <ul class="features">
+                    <li><span class="icon">🏋️</span> Awesome Community</li>
+                    <li><span class="icon">🏋️</span> Personal Fitness Program</li>
+                    <li><span class="icon">🏋️</span> Nutrition Check-in</li>
+                    <li><span class="icon">🏋️</span> Great Coaching</li>
+                    <li><span class="icon">🏋️</span> Swimming Pool, Sauna & Car Parking</li>
+                    <li><span class="icon">🏋️</span> Sauna & Car Parking</li>
+                </ul>
+                <button class="join-btn">Join Now</button>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h2>Annually</h2>
+                    <span class="new">NEW</span>
+                </div>
+                <div class="price">
+                    <span class="currency">Rs</span>
+                    <span class="amount">110,000</span>
+                </div>
+                <ul class="features">
+                    <li><span class="icon">🏋️</span> Awesome Community</li>
+                    <li><span class="icon">🏋️</span> Personal Fitness Program</li>
+                    <li><span class="icon">🏋️</span> Nutrition Check-in</li>
+                    <li><span class="icon">🏋️</span> Great Coaching</li>
+                    <li><span class="icon">🏋️</span> Swimming Pool & Jacuzzi</li>
+                    <li><span class="icon">🏋️</span> Sauna, Mini Bar & Lockers</li>
+                </ul>
+                <button class="join-btn">Join Now</button>
+            </div>
+        </div>
+
+        <h1>Board and  DHA Branch Pricing</h1>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h2>Monthly</h2>
+                    <span class="new">NEW</span>
+                </div>
+                <div class="price">
+                    <span class="currency">Rs</span>
+                    <span class="amount">10,000</span>
+                </div>
+                <ul class="features">
+                    <li><span class="icon">🏋️</span> Awesome Community</li>
+                    <li><span class="icon">🏋️</span> Personal Fitness Program</li>
+                    <li><span class="icon">🏋️</span> Nutrition Check-in</li>
+                    <li><span class="icon">🏋️</span> Great Coaching</li>
+                    <li><span class="icon">🏋️</span> Free Trial Class</li>
+                    <li><span class="icon">🏋️</span> Car Parking</li>
+                </ul>
+                <button class="join-btn">Join Now</button>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h2>Quarterly</h2>
+                    <span class="new">NEW</span>
+                </div>
+                <div class="price">
+                    <span class="currency">Rs</span>
+                    <span class="amount">50,000</span>
+                </div>
+                <ul class="features">
+                    <li><span class="icon">🏋️</span> Awesome Community</li>
+                    <li><span class="icon">🏋️</span> Personal Fitness Program</li>
+                    <li><span class="icon">🏋️</span> Nutrition Check-in</li>
+                    <li><span class="icon">🏋️</span> Great Coaching</li>
+                    <li><span class="icon">🏋️</span> Swimming Pool, Sauna & Car Parking</li>
+                    <li><span class="icon">🏋️</span> Sauna & Car Parking</li>
+                </ul>
+                <button class="join-btn">Join Now</button>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h2>Annually</h2>
+                    <span class="new">NEW</span>
+                </div>
+                <div class="price">
+                    <span class="currency">Rs</span>
+                    <span class="amount">110,000</span>
+                </div>
+                <ul class="features">
+                    <li><span class="icon">🏋️</span> Awesome Community</li>
+                    <li><span class="icon">🏋️</span> Personal Fitness Program</li>
+                    <li><span class="icon">🏋️</span> Nutrition Check-in</li>
+                    <li><span class="icon">🏋️</span> Great Coaching</li>
+                    <li><span class="icon">🏋️</span> Swimming Pool & Jacuzzi</li>
+                    <li><span class="icon">🏋️</span> Sauna, Mini Bar & Lockers</li>
+                </ul>
+                <button class="join-btn">Join Now</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Hayatabad Gym. All rights reserved.</p>
+    </div>
+</body>
+</html>

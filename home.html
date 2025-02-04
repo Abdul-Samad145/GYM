@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayatabad Gym</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html 
+        {
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            min-width: 40%;
+            font-family: Arial, sans-serif;
+        }
+
+        body 
+        {
+            background-color: #f4f4f4;
+        }
+
+        header 
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: black;
+        }
+
+        .header-buttons .btn 
+        {
+            background-color: #000;
+            color: white;
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .header-buttons .btn:hover
+         {
+            background-color: white;
+            color: black;
+        }
+
+        .logo 
+        {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        .logo img
+         {
+            height: 40px;
+            margin-right: 5px;
+        }
+
+        nav 
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .nav-links 
+        {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li 
+        {
+            margin: 0 15px;
+        }
+
+        .nav-links a 
+        {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover 
+        {
+            color: #ffcc00;
+        }
+
+        .join-now 
+        {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .join-now:hover 
+        {
+            background-color: #e6b800;
+            transform: scale(1.05);
+        }
+
+        .hero 
+        {
+            background: url('https://www.fitnessfirst.co.uk/media/kxadks4a/fitnessfirst-coventgarden-jan2024-127h.jpg?width=1272&height=954&format=webp&quality=80&v=1da60f2fa6ab420') no-repeat center center fixed;
+            background-size: cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before 
+        {
+           
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content 
+        {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content h1
+         {
+            font-size: 36px;
+        }
+
+        .join-now 
+        {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff4500;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .join-now:hover 
+        {
+            background-color: #ff6347;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .equipment-section 
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .equipment-text
+         {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .equipment-text h2 
+        {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .equipment-text p 
+        {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .equipment-image
+         {
+            flex: 1;
+        }
+
+        .equipment-image img 
+        {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+      /* For screens up to 320px */
+@media (max-width: 320px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 5px;
+        background: #333;
+        padding: 3px;
+        border-radius: 2px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        margin: 4px 0;
+        color: white;
+        font-size: 6px; /* Smaller font for tiny screens */
+    }
+
+    .header-buttons .btn {
+        font-size: 6px; /* Adjusted font size */
+        padding: 3px 3px; /* Compact button */
+        margin-left: 1px;
+        width: 50px;
+    }
+
+    .equipment-text {
+        font-size: 6px;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+   .image{
+     width: 100%;
+   }
+
+    .menu-toggle {
+        display: block;
+        font-size: 10px;
+    }
+    .foot{
+        width: 100%;
+        padding:30px;
+    }
+    .social-icons{
+        padding: 10px;
+    }
+
+    .link{
+        padding: 10px;
+    }
+
+    h3{
+        text-decoration: underline;
+    }
+
+}
+
+@media(max-width:320px)
+{
+    .nav-links
+    {
+      display: none;
+    }
+    
+
+
+
+    .nav-links.active{
+        display: flex;
+        flex-direction: column;
+        position:absolute;
+        top:55px;
+        right: 15px;
+        background: #333;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    }
+}
+
+/* For screens up to 375px */
+@media (max-width: 375px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        right: 15px;
+        background: #333;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1{
+        font-size:6px;
+    }
+
+    .nav-links li {
+        margin: 5px;
+        color: white;
+        font-size: 6px;
+    }
+
+    .header-buttons .btn {
+        font-size: 6px;
+        padding: 7px;
+        margin-left: 5px;
+    }
+
+    .equipment-text {
+        font-size: 15px;
+        margin-bottom: 18px;
+        display: block;
+    }
+
+    .image{
+        width: 100%;
+      }
+
+    .menu-toggle {
+        display: block;
+        font-size: 22px;
+    }
+}
+
+/* For screens up to 768px */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #333;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        margin: 10px ;
+        color: white;
+        font-size: 14px;
+    }
+
+    .header-buttons .btn {
+        font-size: 12px; /* Reduce font size for buttons */
+        padding: 8px 15px; /* Adjust padding */
+        margin-left: 5px;
+    }
+
+    .equipment-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .equipment-image img {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+
+        .menu-toggle 
+        {
+            display: none;
+        }
+
+       footer {
+    background-color: #1B2631;
+    color: white;
+    padding: 20px 10px; /* Reduced from 40px 20px to 20px 10px */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-content div {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    margin-right: 220px;
+}
+
+.footer-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content ul li {
+    margin-bottom: 10px;
+}
+
+.footer-content ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-content ul li a:hover {
+    color: #ff6347;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff6347;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    border-top: 5px solid whitesmoke;
+    font-size: 10px;
+}
+
+    </style>
+</head>
+
+
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://th.bing.com/th/id/OIP.K5S_Jg8I89Nw7l6UgXj_ZgHaE7?w=297&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Gym Logo" width="50">
+                <h1 style="color: white;">Hayatabad Gym</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="class.html">Classes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Equipment uses </a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="price.html">Pricing</a></li>
+                 <li><a href="time.html">Timing</a></li>
+
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <button class="btn call-us">Call Us Now</button>
+            <button class="btn email-us">Email Us</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Community Based Gym</h1>
+            <h2>Get fit, stay healthy, and be part of our community</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="gym.html" class="join-now">Join Now</a>
+        </div>
+    </section>
+
+    <section class="equipment-section">
+        <div class="equipment-text">
+            <h2>Our Equipment</h2>
+            <p>At Structure Health & Fitness, our mission is to turn your fitness dreams into achievable goals with unwavering commitment and expertise. We understand that embarking on a fitness journey requires not just motivation but the right tools to succeed. That’s why we offer an extensive selection of premium fitness equipment tailored to meet the diverse needs of our clients, whether you are just starting out or are an experienced athlete.
+
+Our collection features cutting-edge treadmills engineered to provide a smooth and effective cardio workout, helping you to meet and exceed your cardiovascular goals. For those focused on building strength, our range of weightlifting apparatuses is designed to enhance your performance and support muscle growth. Each piece of equipment is crafted with precision and durability in mind, ensuring that you receive the highest quality and reliability.At Structure Health & Fitness, we believe in fostering a holistic workout experience that supports not only physical health but also overall well-being.Our equipment is built to cater to a variety of exercise routines and fitness levels, providing you with the flexibility to tailor your workouts to your personal needs and preferences.</p>
+      
+            <img src="https://structure.com.pk/wp-content/uploads/2023/08/top-view-perfectly-ordered-fitness-items.jpg" alt="Gym Equipment" class="image">
+        </div>
+    </section>
+
+
+     <section class="equipment-section">
+        <div class="equipment-text">
+            <h2> Community Cares</h2>
+            <p> Welcome to our vibrant gym community, where support and encouragement are the cornerstones of your fitness journey. When you join us, you step into an environment where camaraderie and motivation thrive. Our community is filled with like-minded individuals who are passionate about achieving their fitness goals, creating a positive and inclusive atmosphere that fosters personal growth.
+
+We take pride in offering a range of monthly challenges designed to keep you engaged and motivated. These challenges not only push you to reach new milestones but also provide opportunities to celebrate your progress and achievements. Additionally, our online platforms serve as a showcase for your transformation, highlighting your dedication and success while inspiring others in the community.
+
+At our gym, you are never alone on your path to better health and fitness. With the support of our dynamic community and the tools we provide, you’ll find the motivation and encouragement needed to reach your goals and beyond. Join us and become a part of a supportive network that celebrates every step of your fitness journey.</p>
+           
+            <img src="https://structure.com.pk/wp-content/uploads/2023/07/community-classes-1536x864.jpg" alt="Gym Equipment" class="image">
+        </div>
+    </section> 
+
+
+     <section class="equipment-section">
+        <div class="equipment-text">
+            <h2> Personal Training At Its Best</h2>
+            <p>Our personalized training program is meticulously crafted to help you achieve your fitness goals with maximum efficiency. Designed with your unique needs in mind, this program provides more than just effective workouts. Our expert trainers are dedicated to guiding you through each session, ensuring that your exercises are performed correctly and effectively to yield the best results.
+
+In addition to personalized workout plans, we offer tailored diet charts that complement your training regimen. These custom nutrition plans are created to optimize your progress, support your fitness goals, and enhance overall performance. By integrating both exercise and nutrition, we aim to provide a comprehensive approach to achieving your fitness potential.
+
+With our transformative program, you’ll benefit from a holistic strategy that addresses every aspect of your fitness journey. Whether you're aiming to build strength, improve endurance, or reach specific health milestones, our team is here to support you every step of the way. Begin your journey towards a healthier, fitter you with our expert guidance and personalized approach. Start today and see how our program can make a difference in your life.</p>
+         
+            <img src="https://structure.com.pk/wp-content/uploads/2023/07/pool.png" alt="Gym Equipment" class="image">
+        </div>
+    </section> 
+
+
+    <footer>
+        <div class="footer-content">
+           <div>
+              
+                <div class="foot">
+                    <h3>About Us</h3>
+                    <br>
+                <p>We are a community-based gym focused on providing a welcoming and supportive environment for everyone. Whether you are a beginner or a seasoned athlete, our gym has something for everyone. Join us today and be part of our fitness community!</p>
+            </div>
+        </div>
+
+         
+            <div class="link">
+                <h3>Quick Links</h3>
+                <br>
+               
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="class.html">Classes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="price.html">Pricing</a></li>
+                    <li><a href="time.html">Timing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hayatabad Gym. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

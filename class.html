@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes - Community Based Gym</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: black;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a
+         {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+       .nav a:hover
+       {
+         color: orange;
+       }
+
+        .class-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            position: relative;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .class-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .class-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .class-content h1 {
+            font-size: 36px;
+            margin: 0 0 10px 0;
+        }
+
+        .class-content p {
+            font-size: 18px;
+            margin: 10px 0 20px 0;
+        }
+
+        .learn-more {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #333;
+            background-color: #ffcc00;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .learn-more:hover {
+            background-color: green;
+            box-shadow: 2px 1px 1px;
+        }
+
+        .fat-loss {
+            background: url('https://th.bing.com/th/id/OIP.4oq5soKkfGL50kE0dPwT7AHaEK?pid=ImgDet&w=188&h=106&c=7&dpr=1.3') no-repeat center center;
+            background-size: cover;
+        }
+
+        .shredx {
+            background: url('https://th.bing.com/th/id/OIP.bW-CmgrJukp-so8FpsjvtgHaE7?w=253&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hybrid-workout {
+            background: url('https://th.bing.com/th/id/OIP.Tgx6u3WHG7b0Wvlgo4bYdAHaE-?w=289&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hiit {
+            background: url('https://th.bing.com/th/id/OIP.BaolZCNmee_To3hFjgr2hwHaE8?w=289&h=192&c=7&r=0&o=5&dpr=1.3&pid=1.7') no-repeat center center;
+            background-size: cover;
+        }
+
+        @media (max-width: 375px) {
+            .nav-links {
+                display: none;
+            }
+        
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 55px;
+                right: 15px;
+                background: #333;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        
+            h1{
+                font-size:6px;
+            }
+        
+            .nav-links li {
+                margin: 5px;
+                color: white;
+                font-size: 6px;
+            }
+        
+            .header-buttons .btn {
+                font-size: 6px;
+                padding: 7px;
+                margin-left: 5px;
+            }
+        
+            .equipment-text {
+                font-size: 15px;
+                margin-bottom: 18px;
+            }
+        
+            .equipment-image img {
+                width: 100%;
+            }
+        
+            .menu-toggle {
+                display: block;
+                font-size: 22px;
+            }
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2px;
+            padding-bottom: 1px;
+            border-top: 5px solid whitesmoke;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="data:image/jpeg;base64,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" alt="Asia Gym Logo" alt="Logo" width="50px">
+            <span>Hayatabad Gym</span>
+        </div>
+        <nav class="nav">
+            <a href="home.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="class-section fat-loss">
+        <div class="class-content">
+            <h1>FAT LOSS CLASS</h1>
+            <p>Transform your body with our effective Fat Loss Workout program. Shed pounds, tone up, and boost metabolism. Join now for a healthier, fitter you!</p>
+            <a href="fat_loss.html" class="learn-more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="class-section shredx">
+        <div class="class-content">
+            <h1>SHREDX CLASS</h1>
+            <p>Intense and dynamic, our ShredX Class pushes your limits and delivers results. Perfect for those who want to maximize their workout.</p>
+            <a href="shredix_class.html" class="learn-more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="class-section hybrid-workout">
+        <div class="class-content">
+            <h1>HYBRID WORKOUT CLASS</h1>
+            <p>Mix it up with our Hybrid Workout Class. A perfect combination of strength, cardio, and flexibility training for an all-around fitness boost.</p>
+            <a href="hybrid.html" class="learn-more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="class-section hiit">
+        <div class="class-content">
+            <h1>HIIT CLASS</h1>
+            <p>High-Intensity Interval Training (HIIT) to get your heart racing and calories burning. Fast, effective, and fun - join our HIIT Class today!</p>
+            <a href="hiit_class.html" class="learn-more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Hayatabad Gym. All rights reserved.</p>
+    </div>
+</body>
+</html>
